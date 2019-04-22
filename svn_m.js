@@ -9,27 +9,28 @@ const router = new Router();
 
 router.post('/changepassword', async (ctx) => {
     const body = ctx.request.body;
+    console.log(body)
     const userfile = fs.readFileSync('/file/svn/svnrepos/conf/passwd').toString();
     const pattern = new RegExp(`${body.username} = ${body.password}`)
-    if (!pattern.test(userfile)) {
-        ctx.body = JSON.stringify(
-            {
-                code: -1,
-                data: '账号密码不存在',
-                msg: '账号密码不存在'
-            }
-        );
-    } else {
-        const nuserfile = userfile.replace(`${body.username} = ${body.password}`, `${body.username} = ${body.npassword}`)
-        fs.writeSync('/file/svn/svnrepos/conf/passwd', nuserfile);
-        ctx.body = JSON.stringify(
-            {
-                code: 0,
-                data: '修改成功',
-                msg: '修改成功'
-            }
-        );
-    }
+    // if (!pattern.test(userfile)) {
+    //     ctx.body = JSON.stringify(
+    //         {
+    //             code: -1,
+    //             data: '账号密码不存在',
+    //             msg: '账号密码不存在'
+    //         }
+    //     );
+    // } else {
+    //     const nuserfile = userfile.replace(`${body.username} = ${body.password}`, `${body.username} = ${body.npassword}`)
+    //     fs.writeSync('/file/svn/svnrepos/conf/passwd', nuserfile);
+    //     ctx.body = JSON.stringify(
+    //         {
+    //             code: 0,
+    //             data: '修改成功',
+    //             msg: '修改成功'
+    //         }
+    //     );
+    // }
 
 })
 
