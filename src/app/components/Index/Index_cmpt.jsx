@@ -55,7 +55,7 @@ class Index extends React.Component {
             npassword,
             cpassword
         } = this.state;
-        if (username && password && npassword && cpassword) {
+        if (!(username && password && npassword && cpassword)) {
             message.error('参数不全');
             return;
         }
