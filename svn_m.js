@@ -43,7 +43,7 @@ router.get('/**', async (ctx) => {
     await ctx.render('app')
 })
 const app = new Koa();
-
+app.use(bodyParser());
 app.use(serve(path.join(__dirname, 'public'), {
     maxage: 365 * 24 * 60 * 60 * 1000
 }));
@@ -51,5 +51,5 @@ app.use(views(__dirname + '/views', {
     extension: 'ejs'
 }))
 app.use(router.routes()).use(router.allowedMethods())
-app.use(bodyParser());
+
 app.listen(3002);
