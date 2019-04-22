@@ -6,7 +6,7 @@ const serve = require('koa-static');
 const views = require('koa-views');
 const Router = require('koa-router');
 const router = new Router();
-app.use(bodyParser());
+
 router.post('/changepassword', async (ctx) => {
     const body = ctx.request.body;
     const userfile = fs.readFileSync('/file/svn/svnrepos/conf/passwd').toString();
@@ -51,5 +51,5 @@ app.use(views(__dirname + '/views', {
     extension: 'ejs'
 }))
 app.use(router.routes()).use(router.allowedMethods())
-
+app.use(bodyParser());
 app.listen(3002);
