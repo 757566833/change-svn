@@ -76,7 +76,7 @@ class Index extends React.Component {
             <div className='Index flex'>
                 <div className='content flex'>
                     <div style={{ textAlign: 'center' }}>
-                        <h1>十三互娱内网svn修改密码</h1>
+                        <h1>公司内网svn修改密码</h1>
                     </div>
                     <div style={{ marginBottom: 16 }}>
                         <Input addonBefore={'账号'} value={username} onChange={this.changeusername} />
